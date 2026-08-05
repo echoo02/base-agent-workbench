@@ -1,15 +1,29 @@
 # Base Agent Workbench
 
-A community-driven repository for experimenting with AI agents on the Base ecosystem.
+An open-source developer toolkit for building AI agents and JavaScript applications on the Base blockchain.
 
-## Purpose
+## Features
 
-This repository is intended to help developers:
+- 🔗 Connect to the Base network
+- 👛 Wallet utilities
+- 📦 Smart contract interaction
+- 🤖 AI agent examples
+- 📚 Developer documentation
+- 🧪 Tests and reusable modules
 
-- Build AI agents for Base
-- Learn Base development
-- Share open-source examples
-- Improve developer onboarding
+## Project Structure
+
+```
+base-agent-workbench/
+│
+├── src/
+├── examples/
+├── docs/
+├── tests/
+├── scripts/
+├── README.md
+└── package.json
+```
 
 ## Getting Started
 
@@ -19,26 +33,34 @@ Clone the repository:
 git clone https://github.com/echoo02/base-agent-workbench.git
 ```
 
-Move into the project:
+Install dependencies:
 
 ```bash
-cd base-agent-workbench
+npm install
 ```
 
-## Contributing
+Run an example:
 
-Contributions are welcome.
-
-Please read the CONTRIBUTING.md guide before submitting a Pull Request.
+```bash
+node examples/connect-base.js
+```
 
 ## Roadmap
 
-- AI Agent examples
-- Base integrations
-- Deployment guides
-- MCP examples
-- x402 payment examples
+- [x] Documentation
+- [x] Project setup
+- [ ] Base Provider
+- [ ] Wallet utilities
+- [ ] Smart contract utilities
+- [ ] Transaction helper
+- [ ] AI agent examples
+- [ ] Automated tests
+- [ ] GitHub Actions
+
+## Contributing
+
+Contributions are welcome. Please read the `CONTRIBUTING.md` guide before opening a pull request.
 
 ## License
 
-MIT
+MIT License
