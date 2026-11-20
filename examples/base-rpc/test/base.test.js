@@ -35,7 +35,7 @@ test("previews an unsigned Base Sepolia transaction", () => {
   assert.deepEqual(previewTransaction({ network: "sepolia", to: address, valueEth: "0.015" }), {
     chainId: 84532,
     to: address,
-    value: "0x353a4c5a9b0000",
+    value: "0x354a6ba7a18000",
     data: "0x"
   });
 });
