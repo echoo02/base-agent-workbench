@@ -25,11 +25,16 @@ Move into the project:
 cd base-agent-workbench
 ```
 
+## Guides
+
+- [Base Sepolia agent quickstart](docs/base-sepolia-agent-quickstart.md) — connect a Node.js application or agent tool to Base Sepolia using a read-only RPC provider.
+- [Troubleshooting](docs/TROUBLESHOOTING.md) — resolve common setup, RPC, and wallet issues, including safe handling of environment variables and signing keys.
+
 ## Contributing
 
 Contributions are welcome.
 
-Please read the CONTRIBUTING.md guide before submitting a Pull Request.
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) guide before submitting a Pull Request.
 
 ## Roadmap
 

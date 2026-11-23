@@ -12,41 +12,52 @@ Check your Node.js version:
 node -v
 ```
 
-Use the latest LTS version if possible.
+Use Node.js 20 or later for the Base Sepolia agent quickstart.
 
 ## Installing Dependencies
+
+Install the dependencies declared by your project:
 
 ```bash
 npm install
 ```
 
-If installation fails:
+Avoid using `--legacy-peer-deps` as a default workaround. If npm reports a peer-dependency conflict, inspect the conflicting package requirements and choose compatible versions before retrying.
 
-```bash
-npm install --legacy-peer-deps
+## Environment Variables and Secrets
+
+Keep configuration in a local `.env` file and add `.env` to `.gitignore`. Commit only placeholder values in `.env.example`.
+
+For a read-only Base RPC connection, use a public endpoint variable such as:
+
+```dotenv
+BASE_RPC_URL=https://YOUR_BASE_RPC_ENDPOINT
 ```
 
-## Environment Variables
+A read-only RPC connection does not require a wallet private key. Do not add a `PRIVATE_KEY` variable unless the application genuinely needs to sign transactions.
 
-Make sure your environment variables are configured correctly.
+If signing is required:
 
-Example:
+- Never hardcode a private key or paste it into an AI prompt.
+- Never commit `.env`, private keys, seed phrases, or wallet backups.
+- Use a dedicated test wallet on testnets and keep only funds needed for testing.
+- Prefer a managed secret store or wallet-signing service for deployed applications.
+- Restrict what an agent can request a signer to do; require explicit authorization for transactions and enforce recipient, token, amount, and spending limits.
+- Do not print secrets in logs or error messages.
 
-```text
-OPENAI_API_KEY=your_api_key
-BASE_RPC_URL=https://your_rpc_url
-PRIVATE_KEY=your_private_key
-```
+If a key may have been exposed, stop using that key, move remaining funds to a secure wallet, and rotate the exposed credential.
 
 ## Wallet Issues
 
-Ensure your wallet has enough ETH on Base for gas fees.
+For Base transactions, ensure the wallet is connected to the intended Base network and has the required asset for gas. Base Mainnet and Base Sepolia use different chain IDs and assets.
 
 ## RPC Errors
 
-- Check your RPC URL.
-- Verify your internet connection.
-- Try again later if the RPC provider is temporarily unavailable.
+- Check that the RPC URL is correct for the intended Base network.
+- Verify your internet connection and the RPC provider's status.
+- Check provider rate limits and authentication requirements.
+- Confirm the application validates the expected chain ID before using the connection.
+- Retry with another trusted endpoint if the provider is unavailable.
 
 ## Need More Help?
 
@@ -54,5 +65,6 @@ If the issue continues, open a GitHub Issue and include:
 
 - Operating System
 - Node.js version
-- Error message
+- The Base network (Mainnet or Sepolia)
+- Error message with secrets and account identifiers redacted
 - Steps to reproduce
