@@ -28,7 +28,7 @@ test("returns a Base Sepolia EIP-1559 fee quote without sending a transaction", 
         id: 1,
         result: {
           baseFeePerGas: ["0x3b9aca00", "0x3b9aca00"],
-          reward: [["0x3b9aca0"]],
+          reward: [["0x5f5e100"]],
         },
       },
     },
