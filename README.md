@@ -30,6 +30,10 @@ cd base-agent-workbench
 - [Base Sepolia agent quickstart](docs/base-sepolia-agent-quickstart.md) — connect a Node.js application or agent tool to Base Sepolia using a read-only RPC provider.
 - [Troubleshooting](docs/TROUBLESHOOTING.md) — resolve common setup, RPC, and wallet issues, including safe handling of environment variables and signing keys.
 
+## Examples
+
+- [Base transaction receipt watcher](examples/base-receipt-watcher/README.md) — wait for a transaction receipt and confirmation depth without signing or broadcasting.
+
 ## Contributing
 
 Contributions are welcome.
