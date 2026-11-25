@@ -32,8 +32,6 @@ cd base-agent-workbench
 
 ## Examples
 
-- [Base RPC health check](examples/base-rpc-health-check/README.md) — verify Base Mainnet or Base Sepolia RPC connectivity.
-- [Base EIP-1559 fee quote](examples/base-fee-quote/README.md) — estimate transaction fees using read-only RPC methods.
 - [Base transaction receipt watcher](examples/base-receipt-watcher/README.md) — wait for a transaction receipt and confirmation depth without signing or broadcasting.
 
 ## Contributing
