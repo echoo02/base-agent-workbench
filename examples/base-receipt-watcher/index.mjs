@@ -1,3 +1,5 @@
+import { pathToFileURL } from "node:url";
+
 const DEFAULT_POLL_INTERVAL_MS = 1_000;
 const DEFAULT_TIMEOUT_MS = 120_000;
 
@@ -122,7 +124,7 @@ async function main() {
   }, null, 2));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((error) => {
     console.error(error.message);
     process.exitCode = 1;
