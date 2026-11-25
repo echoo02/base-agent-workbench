@@ -1,0 +1,22 @@
+name: Base ERC-20 balance reader tests
+
+on:
+  push:
+    paths:
+      - "examples/base-erc20-balance/**"
+      - ".github/workflows/base-erc20-balance-tests.yml"
+  pull_request:
+    paths:
+      - "examples/base-erc20-balance/**"
+      - ".github/workflows/base-erc20-balance-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run ERC-20 balance reader tests
+        run: node --test examples/base-erc20-balance/index.test.mjs
