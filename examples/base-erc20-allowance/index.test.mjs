@@ -39,7 +39,7 @@ test("reads an allowance and preserves uint256 precision", async () => {
   assert.equal(fetchImpl.calls[1].method, "eth_call");
   assert.equal(fetchImpl.calls[1].params[0].to, tokenAddress);
   assert.equal(fetchImpl.calls[1].params[0].data,
-    `0xdd62ed3e${ownerAddress.slice(2)}${spenderAddress.slice(2)}`);
+    `0xdd62ed3e${"0".repeat(24)}${ownerAddress.slice(2)}${"0".repeat(24)}${spenderAddress.slice(2)}`);
   assert.equal(fetchImpl.calls[1].params[1], "latest");
 });
 
