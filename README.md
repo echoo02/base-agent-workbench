@@ -33,6 +33,7 @@ cd base-agent-workbench
 ## Examples
 
 - [Base transaction receipt watcher](examples/base-receipt-watcher/README.md) — wait for a transaction receipt and confirmation depth without signing or broadcasting.
+- [Base ERC-20 allowance inspector](examples/base-erc20-allowance/README.md) — inspect an owner's token approval for a spender using read-only RPC calls.
 
 ## Contributing
 
