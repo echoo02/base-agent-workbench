@@ -27,7 +27,7 @@ function mockFetch(results) {
 
 test("reads an allowance and preserves uint256 precision", async () => {
   const fetchImpl = mockFetch([
-    { jsonrpc: "2.0", id: 1, result: "0x14a34" },
+    { jsonrpc: "2.0", id: 1, result: "0x2105" },
     { jsonrpc: "2.0", id: 1, result: `0x${word("115792089237316195423570985008687907853269984665640564039457584007913129639935")}` },
   ]);
   const result = await getBaseTokenAllowance({
@@ -45,7 +45,7 @@ test("reads an allowance and preserves uint256 precision", async () => {
 
 test("supports Base Sepolia", async () => {
   const fetchImpl = mockFetch([
-    { result: "0x2105" },
+    { result: "0x14a34" },
     { result: `0x${word(42)}` },
   ]);
   const result = await getBaseTokenAllowance({
