@@ -45,7 +45,7 @@ test("reads an allowance and preserves uint256 precision", async () => {
 
 test("supports Base Sepolia", async () => {
   const fetchImpl = mockFetch([
-    { result: "0x14a34" },
+    { result: "0x2105" },
     { result: `0x${word(42)}` },
   ]);
   const result = await getBaseTokenAllowance({
@@ -83,7 +83,7 @@ test("rejects unsupported chain IDs", async () => {
 });
 
 test("rejects malformed uint256 return data", async () => {
-  const fetchImpl = mockFetch([{ result: "0x14a34" }, { result: "0x1234" }]);
+  const fetchImpl = mockFetch([{ result: "0x2105" }, { result: "0x1234" }]);
   await assert.rejects(
     getBaseTokenAllowance({ rpcUrl, chainId: 8453, tokenAddress, ownerAddress, spenderAddress, fetchImpl }),
     /invalid uint256 allowance/,
@@ -92,7 +92,7 @@ test("rejects malformed uint256 return data", async () => {
 
 test("surfaces JSON-RPC errors", async () => {
   const fetchImpl = mockFetch([
-    { result: "0x14a34" },
+    { result: "0x2105" },
     { error: { code: -32000, message: "execution reverted" } },
   ]);
   await assert.rejects(
