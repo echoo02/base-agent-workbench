@@ -39,6 +39,7 @@ export async function verifyBaseContract({
   if (!Number.isSafeInteger(chainId) || ![8453, 84532].includes(chainId)) throw new TypeError("chainId must be 8453 (Base Mainnet) or 84532 (Base Sepolia)");
   const contractAddress = assertAddress(address);
   const tag = normalizeBlockTag(blockTag);
+  const expected = expectedBytecode === undefined ? null : normalizeBytecode(expectedBytecode, "expectedBytecode");
 
   const chainHex = await rpc(fetchImpl, rpcUrl, "eth_chainId", []);
   const expectedChainHex = "0x" + chainId.toString(16);
@@ -52,7 +53,6 @@ export async function verifyBaseContract({
   }
   const normalizedCode = code.toLowerCase();
   const deployed = normalizedCode !== "0x";
-  const expected = expectedBytecode === undefined ? null : normalizeBytecode(expectedBytecode, "expectedBytecode");
   const matchesExpectedBytecode = expected === null ? null : deployed && normalizedCode === expected;
 
   return {
