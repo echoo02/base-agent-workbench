@@ -1,0 +1,22 @@
+name: Base transaction receipt analyzer tests
+
+on:
+  push:
+    paths:
+      - "examples/base-transaction-receipt/**"
+      - ".github/workflows/base-transaction-receipt-tests.yml"
+  pull_request:
+    paths:
+      - "examples/base-transaction-receipt/**"
+      - ".github/workflows/base-transaction-receipt-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run transaction receipt analyzer tests
+        run: node --test examples/base-transaction-receipt/index.test.mjs
