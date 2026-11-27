@@ -1,0 +1,22 @@
+name: Base USDC payment preflight tests
+
+on:
+  push:
+    paths:
+      - "examples/base-usdc-payment-preflight/**"
+      - ".github/workflows/base-usdc-payment-preflight.yml"
+  pull_request:
+    paths:
+      - "examples/base-usdc-payment-preflight/**"
+      - ".github/workflows/base-usdc-payment-preflight.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run payment preflight tests
+        run: node --test examples/base-usdc-payment-preflight/index.test.mjs
