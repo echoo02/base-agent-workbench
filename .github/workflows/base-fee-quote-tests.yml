@@ -1,0 +1,33 @@
+name: Base fee quote example tests
+
+on:
+  pull_request:
+    paths:
+      - "examples/base-fee-quote/**"
+      - ".github/workflows/base-fee-quote-tests.yml"
+  push:
+    branches:
+      - main
+      - feat/base-rpc-fee-quote
+    paths:
+      - "examples/base-fee-quote/**"
+      - ".github/workflows/base-fee-quote-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Run Node.js tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run fee quote tests
+        run: node --test examples/base-fee-quote/index.test.mjs
