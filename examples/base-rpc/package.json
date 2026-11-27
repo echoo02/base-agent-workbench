@@ -1,0 +1,13 @@
+{
+  "name": "base-rpc-readonly-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "balance": "node src/balance.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
