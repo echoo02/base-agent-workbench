@@ -62,7 +62,7 @@ test("validates URL, chain, address, block tag, and expected bytecode", async ()
   await assert.rejects(verifyBaseContract({ ...args, rpcUrl: "https://example.com", chainId: 1 }), /chainId/);
   await assert.rejects(verifyBaseContract({ ...args, rpcUrl: "https://example.com", address: "0x123" }), /20-byte/);
   await assert.rejects(verifyBaseContract({ ...args, rpcUrl: "https://example.com", blockTag: "yesterday" }), /blockTag/);
-  await assert.rejects(verifyBaseContract({ ...args, rpcUrl: "https://example.com", expectedBytecode: "0x1" }), /bytecode/);
+  await assert.rejects(verifyBaseContract({ ...args, rpcUrl: "https://example.com", expectedBytecode: "0xzz" }), /bytecode/i);
 });
 
 test("rejects malformed RPC bytecode and JSON-RPC errors", async () => {
