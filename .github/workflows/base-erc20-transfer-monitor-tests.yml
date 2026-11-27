@@ -1,0 +1,20 @@
+name: Base ERC-20 transfer monitor tests
+on:
+  pull_request:
+    paths:
+      - "examples/base-erc20-transfer-monitor/**"
+      - ".github/workflows/base-erc20-transfer-monitor-tests.yml"
+  push:
+    branches: [main]
+    paths:
+      - "examples/base-erc20-transfer-monitor/**"
+      - ".github/workflows/base-erc20-transfer-monitor-tests.yml"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test examples/base-erc20-transfer-monitor/index.test.mjs
